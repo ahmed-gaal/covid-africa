@@ -12,7 +12,6 @@ from apps import confirmed, deaths, recovered, home
 ##
 # building the navigation bar
 nav_item = dbc.NavItem(dbc.NavLink("Home", href='/home'))
-navitem = dbc.NavItem(dbc.NavLink("What is COVID-19", href='https://africacdc.org/disease/covid-19/'))
 # make a dropdown for the different pages
 dropdown = dbc.DropdownMenu(
     children=[
@@ -29,8 +28,6 @@ drop_down = dbc.DropdownMenu(
         dbc.DropdownMenuItem("Confirmed Cases", href="/confirmed"),
         dbc.DropdownMenuItem("Death Cases", href="/deaths"),
         dbc.DropdownMenuItem("Recovered Cases", href="/recovered"),
-        dbc.DropdownMenuItem("COVID-19 News", href="https://africacdc.org/covid-19-news/"),
-        dbc.DropdownMenuItem("COVID-19 Research Tracker", href="https://africacdc.org/covid-19/covid-19-research-tracker/"),
     ],
     nav = True,
     in_navbar = True,
@@ -54,7 +51,7 @@ navbar = dbc.Navbar(
             dbc.NavbarToggler(id="navbar-toggler2"),
             dbc.Collapse(
                 dbc.Nav(
-                    [nav_item,navitem,drop_down,dropdown], className="ml-auto", navbar=True
+                    [nav_item,drop_down,dropdown], className="ml-auto", navbar=True
                 ),
                 id="navbar-collapse2",
                 navbar=True,
@@ -64,6 +61,7 @@ navbar = dbc.Navbar(
     color="primary",
     dark=True,
     className="mb-5",
+    expand='sm'
 )
 def toggle_navbar_collapse(n, is_open):
     if n:
